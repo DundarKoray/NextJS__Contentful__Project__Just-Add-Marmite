@@ -23,7 +23,7 @@ export async function getStaticProps() {
 }
 
 export default function Recipes({ recipes }) {
-  // console.log(recipes);
+  console.log(recipes);
   let check = false;
 
   return (
