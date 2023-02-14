@@ -1,6 +1,6 @@
 import { createClient } from "contentful";
-import RecipeCard from "../components/RecipeCard";
-import Skeleton from "../components/Skeleton";
+import RecipeCard from "../components/recipeCard";
+
 
 //fetching data from Contentful
 export async function getStaticProps() {
