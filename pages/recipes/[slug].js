@@ -2,6 +2,7 @@ import { createClient } from "contentful";
 import Image from "next/image";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Skeleton from "../../components/Skeleton";
+import { redirect } from "next/dist/server/api-utils";
 
 //contentful credentials from .env.local file
 const client = createClient({
@@ -37,6 +38,15 @@ export async function getStaticProps({ params }) {
     // we dont want to fetch every recipe item but just one
     'fields.slug': params.slug 
   })
+
+  if (!items.length) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false
+      }
+    }
+  }
 
   return {
     props: { recipe: items[0] },
