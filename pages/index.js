@@ -1,5 +1,6 @@
 import { createClient } from "contentful";
-import RecipeCard from "../components/recipeCard";
+import RecipeCard from "../components/RecipeCard";
+import Skeleton from "../components/Skeleton";
 
 //fetching data from Contentful
 export async function getStaticProps() {
@@ -13,10 +14,11 @@ export async function getStaticProps() {
   //getting recipe model type from contentful
   const res = await client.getEntries({ content_type: 'recipe' })
 
-  //exporting the data as props
+  //exporting the data that is fetched as props
   return {
     props: {
-      recipes: res.items
+      recipes: res.items,
+      revalidate: 1
     }
   }
 
@@ -24,7 +26,7 @@ export async function getStaticProps() {
 
 export default function Recipes({ recipes }) {
   console.log(recipes);
-  let check = false;
+  if(!recipes) return <Skeleton />
 
   return (
     <div className="recipe-list">

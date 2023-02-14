@@ -23,7 +23,8 @@ export const getStaticPaths = async () => {
     // because the names are the same we can just write path
     // paths: paths,
     paths,
-    fallback: false
+    // is fallback is false page 404 will be active
+    fallback: true
   }
 }
 
@@ -37,7 +38,8 @@ export async function getStaticProps({ params }) {
   })
 
   return {
-    props: { recipe: items[0] }
+    props: { recipe: items[0] },
+    revalidate: 1
   }
 
 }
@@ -69,7 +71,7 @@ export default function RecipeDetails({ recipe }) {
         <h3>Method:</h3>
         <div>{documentToReactComponents(method)}</div>
       </div>
-      
+
       <style jsx>{`
         h2,h3 {
           text-transform: uppercase;
