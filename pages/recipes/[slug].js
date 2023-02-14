@@ -101,6 +101,10 @@ export default function RecipeDetails({ recipe }) {
           transform: rotateZ(-1deg);
           box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
         }
+        .banner img {
+          width: 100%;
+          height: auto;
+        }
         .info p {
           margin: 0;
         }
