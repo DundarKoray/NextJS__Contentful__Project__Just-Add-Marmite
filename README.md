@@ -14,7 +14,7 @@ Click the link below to see the app. <br/>
 [vercel](https://next-contentful-project-just-add-marmite.vercel.app/)
 
 # Preview
-![Just Add Marmite - Preview](./src/images/preview.png)
+![Just Add Marmite - Preview](./public/app.png)
 
 # Technologies
   * Next.js
