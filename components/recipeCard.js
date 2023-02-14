@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-export default function recipeCard({ recipe }) {
+
+export default function RecipeCard({ recipe }) {
     const {title, cookingTime, featuredImage, ingredient, method, slug, thumbnail} = recipe.fields;
     return (
         <div className="card">

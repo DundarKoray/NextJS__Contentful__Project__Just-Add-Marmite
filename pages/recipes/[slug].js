@@ -1,6 +1,7 @@
 import { createClient } from "contentful";
 import Image from "next/image";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import Skeleton from "../../components/Skeleton";
 
 //contentful credentials from .env.local file
 const client = createClient({
@@ -46,7 +47,10 @@ export async function getStaticProps({ params }) {
 
 export default function RecipeDetails({ recipe }) {
   console.log(recipe);
-  const { featuredImage, ingredient, method, thumbnail, title, cookingTime } = recipe.fields;
+
+  if(!recipe) return <Skeleton />
+
+  const { featuredImage, title, cookingTime, ingredient, method } = recipe.fields
 
   return (
     <div>

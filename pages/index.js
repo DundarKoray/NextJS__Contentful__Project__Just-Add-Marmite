@@ -26,7 +26,6 @@ export async function getStaticProps() {
 
 export default function Recipes({ recipes }) {
   console.log(recipes);
-  if(!recipes) return <Skeleton />
 
   return (
     <div className="recipe-list">
